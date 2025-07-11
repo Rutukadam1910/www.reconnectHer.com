@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link href="/css/community.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/addcommunityStatus}" th:object="${community}" method="post">
+        <h1>Let's Create Your Community !!</h1>
+        <div class="form-group">
+            <label for="name">Community Name</label>
+            <input type="text" placeholder="Enter your community name" name="Admin name" th:field="*{communityname}">
+            <span th:if="${#fields.hasErrors('communityname')}" th:errors="*{communityname}"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="aboutcommunity">About Community </label> 
+            <textarea placeholder="" id="message" style="height: 150px" th:field="*{aboutcommunity}"></textarea>
+            <span th:if="${#fields.hasErrors('aboutcommunity')}" th:errors="*{aboutcommunity}"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="communitylink">Enter Here Community Link</label>
+            <input type="url" placeholder="Enter Community Registration Link" name="communitylink" th:field="*{communitylink}">
+            <span th:if="${#fields.hasErrors('communitylink')}" th:errors="*{communitylink}" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="Create Community" class="btn-submit">
+    </form>
+</div>
+</body>
+</html>

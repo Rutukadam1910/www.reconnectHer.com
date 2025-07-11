@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="stylesheet" href="/css/story.css">
+
+</head>
+<body>
+<div class="container">
+        <h1>Add Jobs Here</h1>
+        <form th:action="@{/jobstatus}" th:object="${jobopen}" method="post" >
+            <div class="form-group">
+                <label for="title">Job Title:</label>
+                <input type="text" id="title" name="title" th:field="*{title}">
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+            </div>
+            <div class="form-group">
+                <label for="companyname">Company Name:</label>
+                <input type="text" id="companyname" name="companyname" th:field="*{companyname}">
+                <span th:if="${#fields.hasErrors('companyname')}" th:errors="*{companyname}"></span>
+            </div>
+            
+             <div class="form-group">
+                <label for="salary">Salary:</label>
+                <input type="text" id="salary" name="salary" th:field="*{salary}">
+                <span th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></span>
+            </div>
+            <div class="form-group">
+                <label for="requiredSkill">Required Skills</label>
+                <textarea id="requiredSkill" name="requiredSkill" rows="4" th:field="*{requiredSkill}"></textarea>
+                <span th:if="${#fields.hasErrors('requiredSkill')}" th:errors="*{requiredSkill}"></span>
+            </div>
+            <div class="form-group">
+            <label for="discription">Job Description:</label>
+                <textarea id="discription" name="discription" rows="4" th:field="*{discription}"></textarea>
+                <span th:if="${#fields.hasErrors('discription')}" th:errors="*{discription}"></span>
+            </div>
+            <div class="form-group">
+            <label for="link">Enter Here JobOpening Link</label>
+            <input type="url" placeholder="Enter job Opening Link" name="link" th:field="*{link}">
+            <span th:if="${#fields.hasErrors('link')}" th:errors="*{link}" class="text-danger"></span>
+        </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

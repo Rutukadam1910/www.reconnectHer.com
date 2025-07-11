@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+ <link rel="stylesheet" href="/css/Entrepreneurship.css">
+
+</head>
+<body>
+	<div class="container">
+    <h1>Survey for Entrepreneurship</h1>
+    <form th:action="@{/entrepreneurshipstatus}" th:object="${entrepreneurshipSurvey}" method="POST">
+        <div class="form-group">
+            <label for="domain">Domain:</label>
+            <input type="text" id="domain" name="domain" th:field="*{domain}" required>
+            <span th:if="${#fields.hasErrors('domain')}" th:errors="*{domain}"></span>
+            
+        </div>
+        <div class="form-group">
+            <label for="needs">Needs:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="needs" value="funding"> Funding</label>
+                <label><input type="checkbox" name="needs" value="governmentScheme"> Government Scheme</label>
+                <label><input type="checkbox" name="needs" value="training"> Training</label>
+                <label><input type="checkbox" name="needs" value="mentorship"> Mentorship</label>
+                <span th:if="${#fields.hasErrors('needs')}" th:errors="*{needs}"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="community">Are you interested to join the community?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="community" value="yes"> Yes</label>
+                <label><input type="radio" name="community" value="no"> No</label>
+                <span th:if="${#fields.hasErrors('community')}" th:errors="*{community}"></span>  
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sustainable">Sustainable Solution and Goal:</label>
+            <textarea id="sustainableSolution" name="sustainable" rows="4"  th:field="*{sustainable}" required></textarea>
+            <span th:if="${#fields.hasErrors('sustainable')}" th:errors="*{sustainable}"></span>  
+            
+        </div>
+        <button type="submit" class="btn-submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>

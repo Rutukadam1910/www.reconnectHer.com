@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconnect Her</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="/css/viewall.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Navigation start -->
+    <header id="header" class="bg-purple">
+        <div class="header-content container d-flex justify-content-between align-items-center">
+            <a href="" class="navbar-brand p-0 d-flex align-items-center">
+                 <img class="logo-img" src="img/ReconnectHer.png" alt="Logo" >
+                  <h1 class="m-0 ms-2">ReconnectHer</h1>
+                </a> 
+            <div class="nav-links d-flex align-items-center flex-grow-1 justify-content-center">
+                <div class="search-bar d-flex align-items-center">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+                    <button class="btn btn-light" onclick="performSearch()"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="nav-links d-flex align-items-center">
+                <a href="#surveyModal" id="takeSurveyLink" class="btn btn-success ml-3">Take Survey</a>
+                <div class="dropdown ml-3">
+                    <button onclick="toggleDropdown()" class="dropbtn btn btn-light rounded-circle">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <a th:href="@{/dashboard}">Home</a>
+                        <a th:href="@{/userdetails}">Edit Profile</a>
+                        <a href="#">Community</a>
+                        <a href="#">Saved Jobs</a>
+                        <a th:href="@{/index}">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+   <!-- Navigation end -->
+<div class="container mt-4">
+
+	
+
+	<!-- Job Opening start -->
+    <section id="jobOpeningsSection" class="job-openings mb-4">
+        <h2>Job Openings</h2>
+        <div class="card-container">
+            
+            <div class="cards-wrapper">
+                <th:block th:each="jobOpen : ${jobOpenList}">
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="job-title" th:text="${jobOpen.title}">Job Title</h5> 
+                            <span th:text="${jobOpen.companyname}">Company Name</span>
+                            <br>
+                            <br>
+                            <a th:href="@{jobdetails/{id}(id=${jobOpen.id})}" id="apply-now" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+            
+        </div>
+    </section>
+	<!-- Job Opening end -->
+
+
+	<!-- Job Recommendation start -->
+    <section id="recommended-jobs" class="recommended-jobs mb-4" th:if="${recommendedJobs != null}">
+            <h2>Recommended Jobs</h2>
+            <div class="card-container">
+                <button class="scroll-arrow left-arrow">&lt;</button>
+                <div class="cards-wrapper">
+                    <th:block th:each="job : ${recommendedJobs}">
+                        <div class="card m-2" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="job-title" th:text="${job.title}">Job Title</h5>
+                                <span th:text="${job.companyname}">Company Name</span>
+                                <a th:href="@{jobdetails/{id}(id=${job.id})}" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+                <button class="scroll-arrow right-arrow">&gt;</button>
+            </div>
+        </section>
+    <!-- Job Recommendation end -->
+    
+   
+
+
+
+	<footer class="bg-dark text-white text-center py-3">
+    	<p>&copy; 2024 ReconnectHer. All rights reserved.</p>
+	</footer>
+
+<!-- Survey Popup Modal -->
+<div id="surveyModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Choose your path</h2>
+        <a class="btn btn-primary mb-2" th:href="@{/jobSurvey}">Job</a>
+        <a class="btn btn-primary" th:href="@{/EntrepreneurshipSurvey}">Entrepreneurship</a>
+    </div>
+</div>
+
+<!-- Success Story Modal -->
+<div id="storyModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Success Story</h2>
+        <p id="storyContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+</div>
+
+<script src="js/dashScript.js"></script>
+<script>
+// Toggle dropdown menu
+function toggleDropdown() {
+    document.getElementById("dropdownContent").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+// Modal functionality
+var modal = document.getElementById("surveyModal");
+var storyModal = document.getElementById("storyModal");
+
+var surveyLink = document.getElementById("takeSurveyLink");
+var span = document.getElementsByClassName("close")[0];
+
+surveyLink.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Read More modal functionality
+var readMoreButtons = document.getElementsByClassName("read-more-btn");
+for (var i = 0; i < readMoreButtons.length; i++) {
+    readMoreButtons[i].onclick = function() {
+        storyModal.style.display = "block";
+        var storyContent = this.previousElementSibling.innerHTML;
+        document.getElementById("storyContent").innerHTML = storyContent;
+    }
+}
+
+var closeStoryModal = document.getElementsByClassName("close")[1];
+closeStoryModal.onclick = function() {
+    storyModal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == storyModal) {
+        storyModal.style.display = "none";
+    }
+}
+
+// Search functionality
+function performSearch() {
+    var input = document.getElementById('searchInput').value.toLowerCase();
+    var successStoriesSection = document.getElementById('successStoriesSection');
+    var jobOpeningsSection = document.getElementById('jobOpeningsSection');
+    var communitiesSection = document.getElementById('communitiesSection');
+
+    // Hide all sections initially
+    successStoriesSection.style.display = 'none';
+    jobOpeningsSection.style.display = 'none';
+    communitiesSection.style.display = 'none';
+
+    // Show the relevant section based on the search input
+    if (input.includes('success')) {
+        successStoriesSection.style.display = 'block';
+    } 
+    if (input.includes('job')) {
+        jobOpeningsSection.style.display = 'block';
+    } 
+    if (input.includes('communities')) {
+        communitiesSection.style.display = 'block';
+    }
+}
+
+// Function to show all sections (reset view to default)
+function showAllSections() {
+    var successStoriesSection = document.getElementById('successStoriesSection');
+    var jobOpeningsSection = document.getElementById('jobOpeningsSection');
+    var communitiesSection = document.getElementById('communitiesSection');
+
+    // Show all sections
+    successStoriesSection.style.display = 'block';
+    jobOpeningsSection.style.display = 'block';
+    communitiesSection.style.display = 'block';
+}
+
+// Scroll functionality for card containers
+document.addEventListener("DOMContentLoaded", function() {
+    // Scroll handling for each section (similar to your existing implementation)
+});
+
+// JavaScript code for dashboard functionality
+
+// Scroll functionality for card containers
+document.addEventListener("DOMContentLoaded", function() {
+// Success Stories Section
+var successStoriesLeftArrow = document.querySelector("#successStoriesSection .left-arrow");
+var successStoriesRightArrow = document.querySelector("#successStoriesSection .right-arrow");
+
+
+ successStoriesLeftArrow.addEventListener("click", function() {
+     scrollContainer("successStoriesSection", "left");
+ });
+
+ successStoriesRightArrow.addEventListener("click", function() {
+     scrollContainer("successStoriesSection", "right");
+ });
+
+ // Job Openings Section
+ var jobOpeningsLeftArrow = document.querySelector("#jobOpeningsSection .left-arrow");
+ var jobOpeningsRightArrow = document.querySelector("#jobOpeningsSection .right-arrow");
+
+ jobOpeningsLeftArrow.addEventListener("click", function() {
+     scrollContainer("jobOpeningsSection", "left");
+ });
+
+ jobOpeningsRightArrow.addEventListener("click", function() {
+     scrollContainer("jobOpeningsSection", "right");
+ });
+
+ // Communities Section
+ var communitiesLeftArrow = document.querySelector("#communitiesSection .left-arrow");
+ var communitiesRightArrow = document.querySelector("#communitiesSection .right-arrow");
+
+ communitiesLeftArrow.addEventListener("click", function() {
+     scrollContainer("communitiesSection", "left");
+ });
+
+ communitiesRightArrow.addEventListener("click", function() {
+     scrollContainer("communitiesSection", "right");
+ });
+});
+
+function scrollContainer(sectionId, direction) {
+var container = document.querySelector("#" + sectionId + " .cards-wrapper");
+
+
+ if (direction === "left") {
+     container.scrollBy({
+         left: -300,
+         behavior: 'smooth'
+     });
+ } else if (direction === "right") {
+     container.scrollBy({
+         left: 300,
+         behavior: 'smooth'
+     });
+ }
+}
+
+// Toggle dropdown menu
+function toggleDropdown() {
+document.getElementById("dropdownContent").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+for (var i = 0; i < dropdowns.length; i++) {
+var openDropdown = dropdowns[i];
+if (openDropdown.classList.contains('show')) {
+openDropdown.classList.remove('show');
+}
+}
+}
+}
+
+// Modal functionality
+var modal = document.getElementById("surveyModal");
+var storyModal = document.getElementById("storyModal");
+
+var surveyLink = document.getElementById("takeSurveyLink");
+var span = document.getElementsByClassName("close")[0];
+
+surveyLink.onclick = function() {
+modal.style.display = "block";
+}
+
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+}
+
+// Read More modal functionality
+var readMoreButtons = document.getElementsByClassName("read-more-btn");
+for (var i = 0; i < readMoreButtons.length; i++) {
+readMoreButtons[i].onclick = function() {
+storyModal.style.display = "block";
+var storyContent = this.previousElementSibling.innerHTML;
+document.getElementById("storyContent").innerHTML = storyContent;
+}
+}
+
+var closeStoryModal = document.getElementsByClassName("close")[1];
+closeStoryModal.onclick = function() {
+storyModal.style.display = "none";
+}
+
+window.onclick = function(event) {
+if (event.target == storyModal) {
+storyModal.style.display = "none";
+}
+}
+
+// Search functionality
+function performSearch() {
+var input = document.getElementById('searchInput').value.toLowerCase();
+var successStoriesSection = document.getElementById('successStoriesSection');
+var jobOpeningsSection = document.getElementById('jobOpeningsSection');
+var communitiesSection = document.getElementById('communitiesSection');
+
+ // Hide all sections initially
+ successStoriesSection.style.display = 'none';
+ jobOpeningsSection.style.display = 'none';
+ communitiesSection.style.display = 'none';
+
+ // Show the relevant section based on the search input
+ if (input.includes('success')) {
+     successStoriesSection.style.display = 'block';
+ } 
+ if (input.includes('job')) {
+     jobOpeningsSection.style.display = 'block';
+ } 
+ if (input.includes('communities')) {
+     communitiesSection.style.display = 'block';
+ }
+}
+
+</script>
+</body>
+</html>

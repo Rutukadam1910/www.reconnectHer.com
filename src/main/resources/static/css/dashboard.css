@@ -1,0 +1,413 @@
+:root {
+    --primary: #6222CC;
+    --secondary: #FBA504;
+    --light: #F6F4F9;
+    --dark: #04000B;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.bg-purple {
+    background-color: #6222CC; /* Changed */
+}
+
+#header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #6222CC; /* Changed */
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from { top: -100px; }
+    to { top: 0; }
+}
+
+.header-content {
+   padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content .brand h1 {
+    margin: 0;
+    color: var(--light);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links .search-bar {
+    margin-right: 10px;
+}
+
+.nav-links .search-bar {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.nav-links .search-bar .form-control {
+     border-radius: 20px 0 0 20px;
+    width: 200px;
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--light);
+    color: var(--dark);
+    transition: background-color 0.3s;
+}
+
+.nav-links .search-bar .btn {
+    border-radius: 0 20px 20px 0;
+    border: none;
+    padding: 5px 10px;
+    background-color: #6222CC; 
+    color: var(--light);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar input {
+    width: 250px;
+    border-radius: 20px 0 0 20px;
+    border: none;
+    padding: 5px 10px;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+.search-bar button {
+    border-radius: 0 20px 20px 0;
+    border: none;
+    padding: 5px 10px;
+    background-color: #6222CC; /* Changed */
+    color: var(--light);
+}
+
+.nav-links .dropbtn {
+    background-color: var(--light);
+    color: #6222CC; /* Changed */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-links .dropbtn:hover {
+    background-color: #6222CC; /* Changed */
+    color: var(--light);
+}
+
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--light);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+    transition: display 0.3s;
+}
+
+.nav-links .dropdown-content a {
+    color: #6222CC; /* Changed */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.nav-links .dropdown-content a:hover {
+    background-color: #6222CC; /* Changed */
+    color: var(--light);
+}
+
+.nav-links .dropdown .dropbtn:focus + .dropdown-content,
+.nav-links .dropdown-content:hover {
+    display: block;
+}
+
+.search-bar-container {
+    display: none;
+}
+
+.welcome-message {
+    padding: 10px 0;
+    background-color: #6222CC; /* Changed */
+    color: var(--light);
+    animation: fadeIn 1s ease-in;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: var(--light);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--dark);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    animation: slideDown 0.5s ease-in-out;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+}
+
+.card-container {
+    position: relative;
+    display: flex;
+    overflow-x: hidden;
+    padding: 10px;
+}
+
+.card-container .scroll-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    transform: translateY(-50%);
+    background-color: #6222CC; /* Changed */
+    color: var(--light);
+    border: none;
+    border-radius : 20px;
+    padding: 10px 11px;
+    cursor: pointer;
+    z-index: 1;
+    transition: background-color 0.3s;
+}
+
+
+.card-container .scroll-arrow:hover {
+    background-color: #4e19a3; /* Manually darkened #6222CC by 10% */
+}
+
+.card-container .left-arrow {
+    left: 0;
+}
+
+.card-container .right-arrow {
+    right: 0;
+}
+
+.card-container .cards-wrapper {
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.card-container .cards-wrapper::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.card-container .card {
+    flex: 0 0 auto;
+}
+
+.card {
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--light);
+    border: 1px solid #6222CC; /* Changed */
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    padding: 10px;
+    color: var(--dark);
+}
+.cards-wrapper{
+	background-color: #c8c8ff;
+}
+/* Buttons */
+.btn-primary,
+#takeSurveyLink {
+    background-color: #FBA504; /* Changed */
+    border-color: #FBA504; /* Changed */
+    border-radius: 20px;
+    padding: 5px 15px;
+    color: var(--light);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover,
+#takeSurveyLink:hover {
+    background-color: #C78703; /* Manually darkened #FBA504 by 10% */
+    border-color: #C78703;
+    transform: translateY(-2px);
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: var(--light);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--dark);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+}
+
+#read-more,
+#apply-now,
+#join-now
+{
+	background-color: #6222CC;
+	border-color: #000000;
+	padding: 8px 20px;
+    color: var(--light);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+
+#read-more:hover,
+#apply-now:hover,
+#join-now:hover
+{
+    background-color: #6222CC; /* Manually darkened #FBA504 by 10% */
+    border-color: #000000;
+    transform: translateY(-2px);
+}
+
+.community-create {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.community-create a {
+    background-color: #6222CC;
+    border-color: #000000;
+    padding: 8px 20px;
+    color: var(--light);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius : 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.community-create a:hover {
+    background-color: #4e19a3; /* Manually darkened #6222CC by 10% */
+    border-color: #000000;
+    transform: translateY(-2px);
+    color: #d0d0ff;
+    text-decoration:none;
+}
+
+#dashboard{
+	 background-color: #6222CC;
+    border-color: #000000;
+    padding: 8px 20px;
+    color: var(--light);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius : 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#dashboard:hover{
+	background-color: #4e19a3; /* Manually darkened #6222CC by 10% */
+    border-color: #000000;
+    transform: translateY(-2px);
+    color: #d0d0ff;
+    text-decoration:none;
+}
+
+.logo-img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius:50%;
+}
+
+h1 {
+    color: #ffff;
+    font-weight: 700 !important;
+}
+
+.btn-btn-secondary{
+	  background-color: #6222CC; 
+}
+

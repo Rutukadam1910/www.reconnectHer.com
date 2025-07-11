@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="stylesheet" href="/css/story.css">
+</head>
+<body>
+<body>
+<div class="container">
+<h1>Goverment Scheme Detail update</h1>
+	<form th:action="@{/govesaveupdate}"  th:object="${govScheme}" method ="post">
+	<input type="hidden" name="id" th:field="*{id}">
+		<div>
+			<label for="schemenamename">Enter New Scheme Name</label> 
+			<input type="text"placeholder="Enter new scheme Name" name="schemename" th:field="*{schemename}">
+			<span th:if="${#fields.hasErrors('schemename')}" th:errors="*{schemename}"></span>
+			<br>
+			<br>
+			
+			<label for="domain">Choose New domain</label> 
+			<select id="domain" name="domain" th:field="*{domain}" required>
+                	<option value="">Select</option>
+                	<option value="job">Job</option>
+                	<option value="entrepreneurship">Entrepreneurship</option>
+                </select>
+			<span th:if="${#fields.hasErrors('domain')}" th:errors="*{domain}"></span>
+			<br>
+			<br>
+			
+			<label for="sector">Sector</label> 
+			<input type="text"placeholder="Enter new sector" name="sector" th:field="*{sector}">
+			<span th:if="${#fields.hasErrors('sector')}" th:errors="*{sector}"></span>
+			<br>
+			<br>
+			
+			<label for="applylink">Apply Link</label> 
+			<input type="text"placeholder="Enter new applylink" name="applylink" th:field="*{applylink}">
+			<span th:if="${#fields.hasErrors('applylink')}" th:errors="*{applylink}"></span>
+			<br>
+			<br>
+			
+			<label for="description">Description</label> 
+			<input type="text"placeholder="Enter new description" name="description" th:field="*{description}">
+			<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+			<br>
+			<br>
+
+			<input type="submit">
+			
+		</div>
+
+	</form>
+</div>
+</body>
+
+</body>
+</html>

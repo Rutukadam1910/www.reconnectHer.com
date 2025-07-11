@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReconnectHer</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/adminDash.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Navbar toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="" class="navbar-brand p-0 d-flex align-items-center">
+                 <img class="logo-img" src="img/ReconnectHer.png" alt="Logo" >
+                  <h1 class="m-0 ms-2">ReconnectHer</h1>
+                </a>
+            <p class="navbar-brand" >
+                <img src="\img\profile.jpg" alt="Profile Icon" class="rounded-circle" style="height: 40px; width: 40px;">
+            </p>
+        </div>
+    </nav>
+
+    <!-- Vertical Navigation -->
+    <div class="d-flex">
+        <div class="sidebar bg-secondary">
+            <div class="position-sticky vh-100">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/adminDash}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/reglist}">User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/jobopenlist}">Job with Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/communitylist}">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/story/display}">Success Story</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/mentorList}">Mentor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/schemeList}">Government Scheme</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/allfundList}">Funding Platform</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contactuslist}">Contact Form Filled by User</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow-1 p-4">
+            <div class="container">
+            <br>
+                <h1>Mentors</h1>
+                <br>
+                <br>
+                    <button><a th:href="@{/addMentor}">Add Mentor</a></button>
+                    <br><br>
+                     <table>  
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>Qualification</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="mentor: ${mentorList}">
+                                <td th:text="${mentor.id}">ID</td>
+                                <td th:text="${mentor.name}">Name</td>
+                                <td th:text="${mentor.contactNumber}">Contact Number</td>
+                                <td th:text="${mentor.highestQualification}">Highest Qualification</td>
+                                
+                                
+                                <td>
+                                     <form th:action="@{/mentor/edit}" method="GET">
+										<input type="hidden" name="id" th:value="${mentor.id}">
+										<input type="submit" value="edit">
+									</form>
+								</td>
+								<td>
+                                    <form th:action="@{/mentor/delete}" method="POST">
+										<input type="hidden" name="id" th:value="${mentor.id}">
+										<input type="submit" value="delete">
+									</form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/js/adminDash.js"></script>
+</body>
+</html>

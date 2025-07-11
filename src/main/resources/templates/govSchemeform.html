@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="stylesheet" href="/css/story.css">
+</head>
+<body>
+<div class="container">
+        <h1>Government Scheme</h1>
+        <form th:action="@{/schemeStatus}" th:object="${govScheme}" method="post">
+            <div class="form-group">
+                <label for="schemename">Scheme Name</label>
+                <input type="text" id="schemename" name="schemename" th:field="*{schemename}">
+                <span th:if="${#fields.hasErrors('schemename')}" th:errors="*{schemename}"></span>
+            </div>
+            <div class="form-group">
+                <label for="domain">Domain</label>
+                <select id="domain" name="domain" th:field="*{domain}" required>
+                	<option value="">Select</option>
+                	<option value="job">Job</option>
+                	<option value="entrepreneurship">Entrepreneurship</option>
+                </select>
+                <span th:if="${#fields.hasErrors('domain')}" th:errors="*{domain}"></span>
+            </div>
+             <div class="form-group">
+                <label for="sector">sector</label>
+                <input type="text" id="sector" name="sector" th:field="*{sector}">
+                <span th:if="${#fields.hasErrors('sector')}" th:errors="*{sector}"></span>
+            </div>
+            <div class="form-group">
+                <label for="applylink">Apply link</label>
+                <input type="text" id="applylink" name="applylink" th:field="*{applylink}">
+                <span th:if="${#fields.hasErrors('applylink')}" th:errors="*{applylink}"></span>
+            </div>
+            <div class="form-group">
+                <label for="sector">Description</label>
+                <input type="text" id="description" name="description" th:field="*{description}">
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div> 
+
+</body>
+</html>

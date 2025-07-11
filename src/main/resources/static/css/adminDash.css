@@ -1,0 +1,141 @@
+@charset "UTF-8";
+/* Custom CSS */
+/* Adjust top navigation */
+.navbar {
+    min-height: 60px; /* Change this as needed */
+    height: 60px;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it's above other content */
+    background-color: #343a40; /* Dark background color for the navbar */
+    justify-content: space-between; /* Space out the items horizontally */
+}
+
+/* Center the logo and title vertically */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin: 0; /* Remove default margin */
+}
+
+/* Adjust the logo image size */
+.logo-img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the logo circular */
+}
+
+/* Style the profile image */
+.navbar .rounded-circle {
+    height: 40px;
+    width: 40px;
+}
+
+/* Decrease the size of the menu button and center it vertically */
+.navbar-toggler {
+    padding: 0.25rem 0.25rem; /* Adjust padding for a smaller button */
+    font-size: 1rem; /* Adjust font size for the icon */
+    align-self: center; /* Center the button vertically */
+}
+
+/* Adjust sidebar */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Ensure this matches the height of the top navigation bar */
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #343a40; /* Dark background color for vertical navigation */
+    width: 220px; /* Width of the sidebar */
+    padding-top: 20px; /* Add padding to the top */
+    padding-left: 10px; /* Add padding to the left */
+    padding-right: 10px; /* Add padding to the right */
+}
+
+/* Style each field as a button */
+.sidebar .nav-link {
+    display: block;
+    padding: 10px; /* Padding from all sides */
+    margin-bottom: 5px; /* Add margin between each field */
+    color: #fff;
+    text-decoration: none;
+    background-color: #495057; /* Background color to resemble button */
+    cursor: pointer;
+    text-align: center; /* Center text horizontally */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Active link */
+.sidebar .nav-link.active {
+    background-color: #007bff; /* Active link background color */
+}
+
+/* Hover effect for nav links */
+.sidebar .nav-link:hover {
+    background-color: #28a745; /* Change color to green shade on hover */
+}
+
+/* Adjust main content area */
+main {
+    padding-top: 20px;
+    margin-left: 240px; /* Adjust based on sidebar width and padding */
+    background-color: #f8f9fa; /* Light background color for content area */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Form styling */
+form {
+    display: inline;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    font-weight: 700 !important;
+}
+
+.m-0.ms-2 {
+    margin: 0 0 0 0.5rem;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="stylesheet" href="/css/story.css">
+</head>
+<body>
+<body>
+<div class="container">
+<h1>Mentor Detail update</h1>
+	<form th:action="@{/savementorupdate}"  th:object="${mentor}" method ="post">
+	<input type="hidden" name="id" th:field="*{id}">
+		<div>
+			<label for="name">Mentor Name</label> 
+			<input type="text"placeholder="Enter Your Name" name="name" th:field="*{name}">
+			<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+			<br>
+			<br>
+			
+			<label for="contactNumber">Contact Number</label> 
+			<input type="text"placeholder="Enter Your Contact number" name="contactNumber" th:field="*{contactNumber}">
+			<span th:if="${#fields.hasErrors('contactNumber')}" th:errors="*{contactNumber}"></span>
+			<br>
+			<br>
+			
+			<label for="highestQualification">Highest Qualification</label> 
+			<input type="text"placeholder="Enter Your Highest Qualification" name="highestQualification" th:field="*{highestQualification}">
+			<br>
+			<br>
+
+			<input type="submit">
+			
+		</div>
+
+	</form>
+</body>
+
+</body>
+</html>

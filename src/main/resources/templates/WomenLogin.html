@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="progress-bar">
+        <div class="step">
+            <h1>Login Here</h1>
+          </div>
+    </div>
+    <div class="form-outer">
+        <form th:action="@{/loginStatus}" th:object="${login}" method="post">
+            <div class="page">
+                <div class="field">
+                  <div class="label">Username</div>
+                  <input type="text" th:field="*{username}">
+                </div>
+                <div class="field">
+                  <div class="label">Password</div>
+                  <input type="password" th:field="*{password}">
+                </div>
+                <div class="field btns">
+                  <button class="submit">Login</button> 
+                </div>
+                <a th:href="@{/registerWomen}">No Account?Register Here</a>
+                  <p th:if="${error}" th:text="${error}"></p>
+              </div>
+        </form>
+        </div>
+    </div>
+    </div> 
+</body>
+</html>

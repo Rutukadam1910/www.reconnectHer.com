@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32"
+	href="img/favicon-32x32.png">
+<link rel="stylesheet" href="/css/jobSurvey.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Survey Form for Job</h1>
+		<form id="jobSurveyForm" th:action="@{/submitSurvey}"
+			th:object="${jobsurvey}" method="post">
+			<div class="form-group">
+				<label for="priviousJob">Previous Job Role:</label> <select
+					id="priviousJob" name="priviousJob" th:field="*{priviousJob}"
+					required>
+					<option value="">Select</option>
+					<option value="developer">Developer</option>
+					<option value="designer">Designer</option>
+					<option value="manager">Manager</option>
+					<option value="analyst">Analyst</option>
+					<option value="systemsAdministrator">Systems Administrator</option>
+					<option value="networkEngineer">Network Engineer</option>
+					<option value="qaEngineer">QA Engineer</option>
+					<option value="databaseAdministrator">Database
+						Administrator</option>
+					<option value="cloudEngineer">Cloud Engineer</option>
+					<option value="securityAnalyst">Security Analyst</option>
+					<option value="technicalSupport">Technical Support</option>
+					<option value="itConsultant">IT Consultant</option>
+					<option value="devOpsEngineer">DevOps Engineer</option>
+					<option value="scrumMaster">Scrum Master</option>
+					<option value="productOwner">Product Owner</option>
+					<option value="businessAnalyst">Business Analyst</option>
+					<option value="dataEngineer">Data Engineer</option>
+					<option value="machineLearningEngineer">Machine Learning
+						Engineer</option>
+					<option value="softwareArchitect">Software Architect</option>
+					<option value="fullStackDeveloper">Full Stack Developer</option>
+					<option value="frontendDeveloper">Frontend Developer</option>
+					<option value="backendDeveloper">Backend Developer</option>
+					<option value="mobileDeveloper">Mobile Developer</option>
+					<option value="gameDeveloper">Game Developer</option>
+				</select> <span th:if="${#fields.hasErrors('priviousJob')}"
+					th:errors="*{priviousJob}"></span>
+			</div>
+			<div class="form-group">
+				<label for="breakDuration">Break Duration (in years):</label> <select
+					id="breakDuration" name="breakDuration" th:field="*{breakDuration}"
+					required>
+					<option value="">Select</option>
+					<option value="0">Less than 1 year</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="2+">More than 2 years</option>
+				</select> <span th:if="${#fields.hasErrors('breakDuration')}"
+					th:errors="*{breakDuration}"></span>
+			</div>
+			<div class="form-group">
+				<label for="courses">Training/Courses:</label> <select id="courses"
+					name="courses" th:field="*{courses}" required>
+					<option value="">Select</option>
+					<option value="programming">Programming</option>
+					<option value="design">Design</option>
+					<option value="management">Management</option>
+					<option value="dataScience">Data Science</option>
+					<option value="cyberSecurity">Cyber Security</option>
+					<option value="cloudComputing">Cloud Computing</option>
+					<option value="devops">DevOps</option>
+					<option value="projectManagement">Project Management</option>
+					<option value="machineLearning">Machine Learning</option>
+					<option value="digitalMarketing">Digital Marketing</option>
+					<option value="blockchain">Blockchain</option>
+					<option value="businessAnalysis">Business Analysis</option>
+					<option value="communicationSkills">Communication Skills</option>
+					<option value="leadership">Leadership</option>
+					<option value="financialManagement">Financial Management</option>
+					<option value="bigData">Big Data</option>
+					<option value="artificialIntelligence">Artificial
+						Intelligence</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Work Mode:</label>
+				<div class="checkbox-group">
+					<label><input type="checkbox" name="workMode"
+						value="fullTime"> Full-time</label> <label><input
+						type="checkbox" name="workMode" value="workFromHome">
+						Work-from-home</label> <label><input type="checkbox"
+						name="workMode" value="partTime"> Part-time</label> <label><input
+						type="checkbox" name="workMode" value="hybrid"> Hybrid</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="primarySkills">Primary Skill:</label> <select
+					id="primarySkills" name="primarySkills" th:field="*{primarySkills}"
+					required>
+					<option value="">Select</option>
+					<option value="java">Java</option>
+					<option value="python">Python</option>
+					<option value="javascript">JavaScript</option>
+					<option value="design">UIUX</option>
+					<option value="design">React</option>
+					<option value="design">AWS</option>
+					<option value="design">.NET</option>
+					<option value="design">Angular</option>
+					<option value="design">Docker</option>
+					<option value="design">Kubernetes</option>
+					<option value="design">MongoDB</option>
+					<option value="design">Machine Learning</option>
+					<option value="html">HTML</option>
+					<option value="css">CSS</option>
+					<option value="sql">SQL</option>
+					<option value="cyberSecurity">Cyber Security</option>
+					<option value="dataAnalysis">Data Analysis</option>
+					<option value="devops">DevOps</option>
+					<option value="projectManagement">Project Management</option>
+					<option value="cloudComputing">Cloud Computing</option>
+					<option value="networking">Networking</option>
+					<option value="blockchain">Blockchain</option>
+					<option value="artificialIntelligence">Artificial
+						Intelligence</option>
+
+
+				</select> <span th:if="${#fields.hasErrors('primarySkills')}"
+					th:errors="*{primarySkills}"></span>
+			</div>
+			<div class="form-group">
+				<label for="secondarySkills">Secondary Skill:</label> <select
+					id="secondarySkills" name="secondarySkills"
+					th:field="*{secondarySkills}" required>
+					<option value="">Select</option>
+					<option value="html">HTML</option>
+					<option value="css">CSS</option>
+					<option value="sql">SQL</option>
+					<option value="communication">Communication</option>
+					<option value="communication">Communication</option>
+					<option value="projectManagement">Project Management</option>
+					<option value="testing">Testing</option>
+					<option value="devops">DevOps</option>
+					<option value="cloudComputing">Cloud Computing</option>
+					<option value="dataAnalysis">Data Analysis</option>
+					<option value="seo">SEO</option>
+					<option value="agileMethodologies">Agile Methodologies</option>
+					<option value="uiDesign">UI Design</option>
+					<option value="uxResearch">UX Research</option>
+					<option value="technicalWriting">Technical Writing</option>
+					<option value="networking">Networking</option>
+					<option value="cyberSecurity">Cyber Security</option>
+					<option value="mobileDevelopment">Mobile Development</option>
+					<option value="gameDevelopment">Game Development</option>
+					<option value="databaseManagement">Database Management</option>
+					<option value="systemAdministration">System Administration</option>
+					<option value="blockchain">Blockchain</option>
+					<option value="digitalMarketing">Digital Marketing</option>
+					<option value="customerSupport">Customer Support</option>
+				</select> <span th:if="${#fields.hasErrors('secondarySkills')}"
+					th:errors="*{secondarySkills}"></span>
+			</div>
+			<div class="form-group">
+				<label for="hobbies">Extra Curricular Activity:</label> <select
+					id="hobbies" name="hobbies" th:field="*{hobbies}" required>
+					<option value="">Select</option>
+					<option value="sports">Sports</option>
+					<option value="music">Music</option>
+					<option value="art">Art</option>
+					<option value="writing">Writing</option>
+				</select> <span th:if="${#fields.hasErrors('hobbies')}"
+					th:errors="*{hobbies}"></span>
+			</div>
+
+			<button type="submit" class="btn-submit">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

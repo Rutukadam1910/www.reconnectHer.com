@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ReconnectHer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="stylesheet" href="/css/story.css">
+</head>
+<body>
+<body>
+<div class="container">
+<h1>Update Community</h1>
+	<form th:action="@{/newupdate}"  th:object="${community}" method ="post">
+	
+		<input type="hidden" name="id" th:field="*{id}">
+	
+		<div>
+			<label for="communityname">Community Name</label> 
+			<input type="text"placeholder="Enter communityname" name="communityname" th:field="*{communityname}">
+			<span th:if="${#fields.hasErrors('communityname')}" th:errors="*{communityname}"></span>
+			<br>
+			<br>
+			
+			<label for="aboutcommunity">Description of community</label> 
+			<input type="text"placeholder="Enter new description " name="aboutcommunity" th:field="*{aboutcommunity}">
+			<span th:if="${#fields.hasErrors('aboutcommunity')}" th:errors="*{aboutcommunity}"></span>
+			<br>
+			<br>
+			
+			<label for="communitylink">Update community link</label> 
+			<input type="text"placeholder="Enter Your new link" name="communitylink" th:field="*{communitylink}">
+			<br>
+			<br>
+
+			<input type="submit">
+			
+		</div>
+
+	</form>
+</body>
+
+</body>
+</html>

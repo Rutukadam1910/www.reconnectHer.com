@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconnect Her</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header id="header" class="bg-purple">
+        <div class="header-content container d-flex justify-content-between align-items-center">
+            <div class="brand">
+                <h1 class="text-white">ReconnectHer</h1>
+            </div>
+            <div class="nav-links d-flex align-items-center flex-grow-1 justify-content-center">
+                <div class="search-bar d-flex align-items-center">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <button class="btn btn-light"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="nav-links d-flex align-items-center">
+                <a href="#surveyModal" id="takeSurveyLink" class="btn btn-success ml-3">Take Survey</a>
+                <div class="dropdown ml-3">
+                    <button onclick="toggleDropdown()" class="dropbtn btn btn-light rounded-circle">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <a href="#">Edit Profile</a>
+                        <a href="#">Community</a>
+                        <a href="#">Saved Jobs</a>
+                        <a th:href="@{/index}">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="welcome-message text-center text-white mt-2">
+            <p>Welcome, Yashshri!</p>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <section class="success-stories mb-4">
+            <h2>Success Stories</h2>
+            <div class="card-container">
+                <button class="scroll-arrow left-arrow">&lt;</button>
+                <div class="cards-wrapper">
+                    <div class="card m-2" style="width: 18rem;">
+                        <img src="img/bgwomen.jpg" class="card-img-top" alt="Success Story 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Empowering Women in Tech</h5>
+                            <p class="card-text">Ayesha started as a junior developer and worked her way up to become a lead engineer at a top tech firm. Her journey inspires many.</p>
+                            <a href="#" class="btn btn-primary read-more-btn">Read More</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <img src="img/bgwomen1.jpg" class="card-img-top" alt="Success Story 2">
+                        <div class="card-body">
+                            <h5 class="card-title">From Homemaker to Entrepreneur</h5>
+                            <p class="card-text">Sunita turned her passion for cooking into a successful catering business, proving that it's never too late to pursue your dreams.</p>
+                            <a href="#" class="btn btn-primary read-more-btn">Read More</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <img src="img/bgwomen2.jpg" class="card-img-top" alt="Success Story 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Breaking Barriers in Healthcare</h5>
+                            <p class="card-text">Dr. Priya's innovative approaches in telemedicine have made healthcare accessible to remote areas, changing countless lives.</p>
+                            <a href="#" class="btn btn-primary read-more-btn">Read More</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <img src="img/bgwomen3.jpg" class="card-img-top" alt="Success Story 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Empowering Women in Finance</h5>
+                            <p class="card-text">Riya broke stereotypes by becoming the youngest CFO of a multinational corporation, inspiring women worldwide.</p>
+                            <a href="#" class="btn btn-primary read-more-btn">Read More</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <img src="img/bgwomen4.jpg" class="card-img-top" alt="Success Story 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Advancing Education for Girls</h5>
+                            <p class="card-text">Maya founded a nonprofit that provides scholarships to girls in underserved communities, ensuring access to quality education.</p>
+                            <a href="#" class="btn btn-primary read-more-btn">Read More</a>
+                        </div>
+                    </div>
+                    <!-- More success stories here -->
+                </div>
+                <button class="scroll-arrow right-arrow">&gt;</button>
+            </div>
+        </section>
+
+        <section class="job-openings mb-4">
+            <h2>Job Openings</h2>
+            <div class="card-container">
+                <button class="scroll-arrow left-arrow">&lt;</button>
+                <div class="cards-wrapper">
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Software Developer</h5>
+                            <p class="card-text">Looking for a Software Developer with 3+ years of experience in Java and Spring Boot. Location: Bangalore.</p>
+                            <a href="https://example.com/apply/software-developer" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Marketing Manager</h5>
+                            <p class="card-text">Seeking a Marketing Manager with expertise in digital marketing strategies. Location: Mumbai.</p>
+                            <a href="https://example.com/apply/marketing-manager" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Analyst</h5>
+                            <p class="card-text">We need a Data Analyst proficient in SQL and Python. Location: Hyderabad.</p>
+                            <a href="https://example.com/apply/data-analyst" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">UX/UI Designer</h5>
+                            <p class="card-text">Looking for a talented UX/UI Designer with a strong portfolio. Location: Remote.</p>
+                            <a href="https://example.com/apply/ux-ui-designer" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Financial Analyst</h5>
+                            <p class="card-text">Seeking a Financial Analyst with experience in budgeting and forecasting. Location: New York.</p>
+                            <a href="https://example.com/apply/financial-analyst" class="btn btn-primary">Apply Now</a>
+                        </div>
+                    </div>
+                    <!-- More job openings here -->
+                </div>
+                <button class="scroll-arrow right-arrow">&gt;</button>
+            </div>
+        </section>
+
+        <section class="communities mb-4">
+            <h2>Communities</h2>
+            <a th:href="@{/addcommunity}">Create New Community</a>
+            <div class="card-container">
+                <button class="scroll-arrow left-arrow">&lt;</button>
+                <div class="cards-wrapper">
+                	<div class="community" th:each="community : ${communities}">
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="community-title" th:text="${community.communityname}">Community Name</h5>
+                        <div class="event-details">
+                            <p><strong>About Community:</strong> <span th:text="${community.aboutcommunity}"></span></p>
+                        </div>
+                        <a th:href="@{${community.communitylink}}" class="btn btn-primary">Join Now</a>
+                    </div>
+                </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Tech Enthusiasts</h5>
+                            <p class="card-text">A community for women interested in technology and coding.</p>
+                            <a href="#" class="btn btn-primary">Join Now</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Women Entrepreneurs</h5>
+                            <p class="card-text">A supportive network for women looking to start their own businesses.</p>
+                            <a href="#" class="btn btn-primary">Join Now</a>
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Healthcare Professionals</h5>
+                            <p class="card-text">A place for women working in healthcare to connect and share knowledge.</p>
+                            <a href="#" class="btn btn-primary">Join Now</a>
+                        </div>
+                    </div>
+                    <!-- More communities here -->
+                </div>
+                <button class="scroll-arrow right-arrow">&gt;</button>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 ReconnectHer. All rights reserved.</p>
+    </footer>
+
+    <!-- Survey Popup Modal -->
+    <div id="surveyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Choose your path</h2>
+            <button class="btn btn-primary mb-2">Job</button>
+            <button class="btn btn-primary">Entrepreneurship</button>
+        </div>
+    </div>
+
+    <!-- Success Story Modal -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Success Story</h2>
+            <p id="storyContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+
+    <script src="js/dashScript.js"></script>
+    <script>
+        // Toggle dropdown menu
+        function toggleDropdown() {
+            document.getElementById("dropdownContent").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // Modal functionality
+        var modal = document.getElementById("surveyModal");
+        var storyModal = document.getElementById("storyModal");
+
+        var surveyLink = document.getElementById("takeSurveyLink");
+        var span = document.getElementsByClassName("close")[0];
+
+        surveyLink.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Read More modal functionality
+        var readMoreButtons = document.getElementsByClassName("read-more-btn");
+        for (var i = 0; i < readMoreButtons.length; i++) {
+            readMoreButtons[i].onclick = function() {
+                storyModal.style.display = "block";
+                var storyContent = this.previousElementSibling.innerHTML;
+                document.getElementById("storyContent").innerHTML = storyContent;
+            }
+        }
+
+        var closeStoryModal = document.getElementsByClassName("close")[1];
+        closeStoryModal.onclick = function() {
+            storyModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == storyModal) {
+                storyModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
