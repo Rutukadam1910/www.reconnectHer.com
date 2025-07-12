@@ -30,15 +30,19 @@ public class RegisterController {
 	}
 	
 	@PostMapping("/status")
-	public String getStatus(@Valid @ModelAttribute("register") Register register, BindingResult bindingResult) {
-		if(bindingResult.hasErrors()) {
-			return "womenRegister";	
-		}
-		rs.saveRegistered(register);
-		return "redirect:/loginWomen";
-		
+	public String getStatus(
+	        @Valid @ModelAttribute("register") Register register,
+	        BindingResult bindingResult) {
+	    System.out.println("== Submitting registration ==");
+	    if (bindingResult.hasErrors()) {
+	        System.out.println("Validation errors: " + bindingResult);
+	        return "womenRegister";
+	    }
+	    rs.saveRegistered(register);
+	    System.out.println("Saved successfully.");
+	    return "redirect:/loginWomen";
 	}
-	
+
 	@GetMapping("/reglist")
 	public String getRegList(Model model) {
 		List<Register> reglist = rs.womenList();

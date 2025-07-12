@@ -25,7 +25,7 @@
                   <input type="password" th:field="*{password}">
                 </div>
                 <div class="field btns">
-                  <button class="submit">Login</button> 
+                <button type="submit" class="submit">Login</button>
                 </div>
                 <a th:href="@{/registerWomen}">No Account?Register Here</a>
                   <p th:if="${error}" th:text="${error}"></p>

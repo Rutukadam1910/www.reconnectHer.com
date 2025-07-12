@@ -71,7 +71,7 @@
               <input type="text" th:field="*{contactNumber}">
             </div>
             <div class="field btns">
-              <button class="prev-1 prev">Previous</button>
+              <button class="prev-1 prev" type="button">Previous</button>
               <button class="next-1 next">Next</button>
             </div>
           </div>
@@ -88,7 +88,7 @@
                <p th:if="${#fields.hasErrors('adharNumber')}" th:errors="*{adharNumber}" class="error-message"></p>
             </div>
             <div class="field btns">
-              <button class="prev-2 prev">Previous</button>
+              <button class="prev-2 prev" type="button">Previous</button>
               <button class="next-2 next">Next</button>
             </div>
           </div>
@@ -104,8 +104,8 @@
               <input type="password" th:field="*{password}">
             </div>
             <div class="field btns">
-              <button class="prev-3 prev">Previous</button>
-              <button class="submit">Sign Up</button>
+              <button class="prev-3 prev" type="button">Previous</button>
+              <button type="submit" class="submit">Register</button>
             </div>
              <a th:href="@{/loginWomen}">Already Have Account? Login Here</a>
           </div>
