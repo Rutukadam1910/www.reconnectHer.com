@@ -47,7 +47,7 @@
     left: 0;
     bottom: 0;
     z-index: 1;
-    background-color: #6610f2;; /* Dark background color for vertical navigation */
+    background-color: rgb(107, 60, 249); /* Dark background color for vertical navigation */
     width: 220px; /* Width of the sidebar */
     padding-top: 20px; /* Add padding to the top */
     padding-left: 10px; /* Add padding to the left */
@@ -69,12 +69,12 @@
 
 /* Active link */
 .sidebar .nav-link.active {
-    background-color: #007bff; /* Active link background color */
+    background-color: rgb(133, 11, 215); /* Active link background color */
 }
 
 /* Hover effect for nav links */
 .sidebar .nav-link:hover {
-    background-color: #28a745; /* Change color to green shade on hover */
+    background-color: rgb(91, 22, 137); /* Change color to green shade on hover */
 }
 
 /* Adjust main content area */
@@ -101,7 +101,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: rgb(133, 11, 215);
     color: white;
 }
 
@@ -119,7 +119,7 @@ form {
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: rgb(133, 11, 215);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -127,7 +127,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: rgb(91, 22, 137);
 }
 
 /* Heading styling */
